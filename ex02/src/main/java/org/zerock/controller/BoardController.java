@@ -22,7 +22,7 @@ import lombok.extern.log4j.Log4j;
 @AllArgsConstructor
 public class BoardController {
 
-	private BoardService service;
+	private BoardService service; 
 
 	@GetMapping("/register")
 	public void register() {
