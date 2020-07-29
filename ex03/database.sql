@@ -19,3 +19,28 @@ SELECT * FROM TBL_REPLY; -- 테이블 조회
 SELECT * FROM TBL_BOARD WHERE rownum < 10 ORDER BY bno DESC;
 
 SELECT * FROM TBL_REPLY ORDER BY rno DESC;
+
+CREATE INDEX idx_reply ON tbl_reply (bno DESC,rno asc);
+
+SELECT /*+INDEX(tbl_reply idx_reply) */
+	rownum rn,bno,rno,reply,replyer,replyDate,updatedate
+	FROM TBL_REPLY
+	WHERE bno = 145745 --(게시물 번호)
+	AND rno>0
+	
+SELECT rno,bno,reply,replyer,replydate,updatedate
+FROM 
+	(
+	SELECT /*+INDEX(tbl_reply idx_reply) */
+	rownum rn,bno,rno,reply,replyer,replyDate,updatedate
+	FROM TBL_REPLY
+	WHERE bno = 589819
+		  AND rno >0
+		  AND rownum <=20
+	) WHERE rn>10
+
+
+	
+	
+	
+	
