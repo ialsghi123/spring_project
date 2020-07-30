@@ -39,7 +39,10 @@ FROM
 		  AND rownum <=20
 	) WHERE rn>10
 
+ALTER TABLE tbl_board ADD (replycnt NUMBER DEFAULT 0);
 
+UPDATE tbl_board SET REPLYCNT =(SELECT count(rno) FROM TBL_REPLY
+WHERE tbl_reply.bno = tbl_board.bno);
 	
 	
 	
