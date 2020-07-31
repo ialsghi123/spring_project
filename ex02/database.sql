@@ -24,7 +24,8 @@ SELECT * FROM TBL_BOARD ORDER BY bno DESC; --게시물 번호 역순으로 처�
 INSERT INTO tbl_board (bno,title,content,writer)
 (SELECT seq_board.nextval, title, content, writer FROM tbl_board);
 
-SELECT * FROM TBL_BOARD ORDER BY bno DESC;
+
+SELECT * FROM TBL_BOARD ORDER BY bno DESC;.
 
 SELECT 
 /* + INDEX_DEXC(tbl_board pk_board) */
